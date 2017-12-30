@@ -10,13 +10,21 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Arturo Silvelo <arturo.silvelo@gmail.com> (https://silvelo.com)",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "telegram",
     "bot",
     "node",
     "typescript"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/silvelo/telegram-actions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/silvelo/telegram-actions/issues"
+  },
+  "homepage": "https://github.com/silvelo/telegram-actions",
   "dependencies": {
     "node-telegram-bot-api": "^0.30.0"
   },
