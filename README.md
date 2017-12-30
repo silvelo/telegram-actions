@@ -33,6 +33,14 @@ More [examples](https://github.com/silvelo/telegram-actions/tree/master/examples
 
 * defaultActions: The default action is echo function. If you write echo .... the bot response with the same message.
 
+## Extra Actions
+* Transmission Actions
+To use this actions you should install transmission package.
+
+```
+npm install --save transmission
+```
+
 ## License
 
 **The MIT License (MIT)**
