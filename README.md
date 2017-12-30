@@ -1,19 +1,13 @@
-#Example
+# Telegram Actions
 
-Install Dev 
+__Instal__
 
 ```bash
-npm install node-telegram-bot-api --save
+npm install node-telegram-bot-api telegram-actions --save
 npm install @types/node-telegram-bot-api --save-dev
 ```
 
-Install 
-
-```bash
-npm install --save telegram-actions
-```
-
-Use it
+## Example
 
 ```typescript
 import { TelegramActions, Telegram, Action } from 'telegram-actions';
@@ -25,8 +19,15 @@ const bot = new Telegram(token);
 bot.start(actions);
 ```
 
+## REFERENCE
+
 - Action: Action interface
 
-- Telegram Actions: Create actions instance.
+- Telegram
+    - constructor(token)
+    - start(TelegramActions)
 
-- Telegram : Create a new bot instance
+- TelegramActions
+    - constructor(boolean)
+    - addActions(Action[])
+
