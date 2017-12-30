@@ -31,6 +31,8 @@ More [examples](https://github.com/silvelo/telegram-actions/tree/master/examples
     - addActions(Action[])
 
 
+* defaultActions: The default action is echo function. If you write echo .... the bot response with the same message.
+
 ## License
 
 **The MIT License (MIT)**
