@@ -12,25 +12,22 @@ npm install @types/node-telegram-bot-api --save-dev
 ## Example
 
 ```typescript
-import { TelegramActions, Telegram, Action } from 'telegram-actions';
+import { TelegramActions, Action } from 'telegram-actions';
 
-const actions = new TelegramActions(true);
 const token = process.env.TOKEN || '';
-
-const bot = new Telegram(token);
-bot.start(actions);
+const bot = new TelegramActions(token, true);
+bot.start();
 ```
+
+More [examples](https://github.com/silvelo/telegram-actions/tree/master/examples)
 
 ## Reference
 
 - Action: Action interface
 
-- Telegram
-    - constructor(token)
-    - start(TelegramActions)
-
 - TelegramActions
-    - constructor(boolean)
+    - constructor(token, defaultActions)
+    - start(TelegramActions)
     - addActions(Action[])
 
 
