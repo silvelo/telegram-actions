@@ -1,5 +1,7 @@
 # Telegram Actions
 
+Control your Telegram bot with comands.
+
 __Install__
 
 ```bash
@@ -31,3 +33,9 @@ bot.start(actions);
     - constructor(boolean)
     - addActions(Action[])
 
+
+## License
+
+**The MIT License (MIT)**
+
+Copyright © 2017 Silvelo
