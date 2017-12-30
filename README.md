@@ -1,6 +1,6 @@
 # Telegram Actions
 
-__Instal__
+__Install__
 
 ```bash
 npm install node-telegram-bot-api telegram-actions --save
@@ -19,7 +19,7 @@ const bot = new Telegram(token);
 bot.start(actions);
 ```
 
-## REFERENCE
+## Reference
 
 - Action: Action interface
 

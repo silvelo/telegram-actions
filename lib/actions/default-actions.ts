@@ -9,13 +9,6 @@ const actions: Action[] = [
             const text = msg.text || '';
             bot.sendMessage(chatId, text);
         }
-    },
-    {
-        regexp: /test/,
-        callback: (msg, match, bot) => {
-            const chatId = msg.chat.id;
-            bot.sendMessage(chatId, 'Test');
-        }
     }
 ]
 export default actions;
