@@ -1,0 +1,27 @@
+{
+  "name": "telegram-actions",
+  "version": "1.0.0",
+  "description": "Control your Telegram bot with comands",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arturo Silvelo <arturo.silvelo@gmail.com> (https://silvelo.com)",
+  "license": "ISC",
+  "keywords": [
+    "telegram",
+    "bot",
+    "node",
+    "typescript"
+  ],
+  "dependencies": {
+    "node-telegram-bot-api": "^0.30.0"
+  },
+  "devDependencies": {
+    "@types/node-telegram-bot-api": "^0.28.2",
+    "typescript": "^2.6.2"
+  }
+}
