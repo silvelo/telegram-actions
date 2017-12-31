@@ -1,14 +1,14 @@
-import { Action, TelegramActions } from './../index';
+import { IAction, TelegramActions } from './../index';
 
 const token = process.env.TOKEN || '';
-const bot = new TelegramActions(token, true);
+const telegramActions = new TelegramActions(token, true);
 
-let newAction: Action = {
+const newAction: IAction = {
     regexp: /receive/,
     callback: (msg, match, bot) => {
         bot.sendMessage(msg.chat.id, 'Message Receive');
-    }
-}
+    },
+};
 
-bot.addActions([newAction]);
-bot.start();
+telegramActions.addActions([newAction]);
+telegramActions.start();

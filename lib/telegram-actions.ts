@@ -1,9 +1,9 @@
-import * as TelegramBot from "node-telegram-bot-api";
-import defaultActions from "./actions/default-actions";
-import { Action } from "./types";
+import * as TelegramBot from 'node-telegram-bot-api';
+import defaultActions from './actions/default-actions';
+import { IAction } from './types';
 export class TelegramActions {
     private bot: TelegramBot;
-    private actions: Action[] = [];
+    private actions: IAction[] = [];
 
     constructor(private token: string, private addDefaultActions?: boolean) {
         if (addDefaultActions) {
@@ -16,7 +16,7 @@ export class TelegramActions {
         this.createActions();
     }
 
-    public addActions(actions: Action[]) {
+    public addActions(actions: IAction[]) {
         this.actions = [...this.actions, ...actions];
     }
 

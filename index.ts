@@ -1,3 +1,3 @@
-export { TelegramActions } from "./lib/telegram-actions";
-export { Action } from "./lib/types";
+export { TelegramActions } from './lib/telegram-actions';
+export { IAction } from './lib/types';
 export { transmissionActions, defaultActions } from './lib/actions';

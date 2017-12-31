@@ -1,14 +1,16 @@
 import * as promisify from 'es6-promisify';
 import { truncate } from 'fs';
 import * as Transmission from 'transmission';
-import { Action } from './../types';
+import { IAction } from './../types';
 
 const transmission = new Transmission();
 
-const actions: Action[] = [
+const actions: IAction[] = [
     {
         regexp: /transmission status/,
         callback: (msg, match, bot) => {
+            const bytes = 1024;
+            const ms = 1000;
             transmission.get((err, arg) => {
                 if (err) {
                     const result = JSON.parse(err.result).result;
@@ -17,7 +19,8 @@ const actions: Action[] = [
                 }
                 let header = '*ID - Added Date - Done - Size*';
                 arg.torrents.forEach((torrent) => {
-                    header += `\n ${torrent.id} - ${new Date(torrent.addedDate * 1000).toLocaleString()} - ${torrent.percentDone} % - ${Math.floor(torrent.totalSize / 1024)} kB`;
+                    header += `\n ${torrent.id} - ${new Date(torrent.addedDate * ms).toLocaleString()}\
+                     - ${torrent.percentDone} % - ${Math.floor(torrent.totalSize / bytes)} kB`;
                 });
 
                 bot.sendMessage(msg.chat.id, header, { parse_mode: 'Markdown' });
@@ -27,7 +30,8 @@ const actions: Action[] = [
     {
         regexp: /transmission add/,
         callback: (msg, match, bot) => {
-            const url = (msg.text as String).split(' ')[2];
+            const urlPos = 2;
+            const url = (msg.text as string).split(' ')[urlPos];
             transmission.addUrl(url, (err, args) => {
                 if (err) {
                     const result = JSON.parse(err.result).result;
