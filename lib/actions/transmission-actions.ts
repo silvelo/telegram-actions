@@ -6,7 +6,6 @@ const transmission = new Transmission();
 
 const actions: IAction[] = [
     {
-        regexp: /transmission status/,
         callback: (msg, match, bot) => {
             const bytes = 1024;
             const ms = 1000;
@@ -25,9 +24,10 @@ const actions: IAction[] = [
                 bot.sendMessage(msg.chat.id, header, { parse_mode: 'Markdown' });
             });
         },
+        regexp: /transmission status/,
+
     },
     {
-        regexp: /transmission add/,
         callback: (msg, match, bot) => {
             const urlPos = 2;
             const url = (msg.text as string).split(' ')[urlPos];
@@ -40,6 +40,8 @@ const actions: IAction[] = [
                 bot.sendMessage(msg.chat.id, args.id);
             });
         },
+        regexp: /transmission add/,
+
     },
 ];
 
