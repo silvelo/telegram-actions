@@ -1,4 +1,3 @@
-import * as promisify from 'es6-promisify';
 import { truncate } from 'fs';
 import * as Transmission from 'transmission';
 import { IAction } from './../types';
