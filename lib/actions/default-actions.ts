@@ -7,7 +7,7 @@ const actions: IAction[] = [
             const text = msg.text || '';
             bot.sendMessage(chatId, text);
         },
-        regexp: /echo/,
+        regexp: /^echo/,
     },
 ];
 export default actions;
