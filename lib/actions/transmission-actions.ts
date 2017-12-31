@@ -2,19 +2,23 @@ import { truncate } from 'fs';
 import * as Transmission from 'transmission';
 import { IAction } from './../types';
 
-const transmission = new Transmission();
+const transmission = new Transmission({ port: 9091 });
 let watchDir;
 transmission.session((err, args) => {
-    watchDir = args['incomplete-dir'];
+    watchDir = args && args['incomplete-dir'];
 });
+
+const validateConnection = (err, msg, bot) => {
+    const result = err.result && JSON.parse(err.result).result || err.code;
+    bot.sendMessage(msg.chat.id, result);
+}
 
 const listTorrents = (msg, match, bot) => {
     const bytes = 1024;
     const ms = 1000;
     transmission.get((err, arg) => {
         if (err) {
-            const result = JSON.parse(err.result).result;
-            bot.sendMessage(msg.chat.id, result);
+            validateConnection(err, msg, bot);
             return;
         }
         let header = '*ID - Added Date - Done - Size*';
@@ -32,8 +36,7 @@ const addTorrent = (msg, match, bot) => {
     const url = (msg.text as string).split(' ')[urlPos];
     transmission.addUrl(url, (err, args) => {
         if (err) {
-            const result = JSON.parse(err.result).result;
-            bot.sendMessage(msg.chat.id, result);
+            validateConnection(err, msg, bot);
             return;
         }
         bot.sendMessage(msg.chat.id, args.id);
