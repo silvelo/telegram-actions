@@ -39,7 +39,8 @@ Reference
 Extra Actions
 ------------
 * Transmission Actions
-To use this actions you should install transmission package.
+
+    > To use this actions you should install transmission package.
 
 ```
 npm install --save transmission

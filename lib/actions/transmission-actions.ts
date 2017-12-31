@@ -3,45 +3,67 @@ import * as Transmission from 'transmission';
 import { IAction } from './../types';
 
 const transmission = new Transmission();
+let watchDir;
+transmission.session((err, args) => {
+    watchDir = args['incomplete-dir'];
+});
+
+const listTorrents = (msg, match, bot) => {
+    const bytes = 1024;
+    const ms = 1000;
+    transmission.get((err, arg) => {
+        if (err) {
+            const result = JSON.parse(err.result).result;
+            bot.sendMessage(msg.chat.id, result);
+            return;
+        }
+        let header = '*ID - Added Date - Done - Size*';
+        arg.torrents.forEach((torrent) => {
+            header += `\n ${torrent.id} - ${new Date(torrent.addedDate * ms).toLocaleString()}\
+             - ${torrent.percentDone} % - ${Math.floor(torrent.totalSize / bytes)} kB`;
+        });
+
+        bot.sendMessage(msg.chat.id, header, { parse_mode: 'Markdown' });
+    });
+};
+
+const addTorrent = (msg, match, bot) => {
+    const urlPos = 2;
+    const url = (msg.text as string).split(' ')[urlPos];
+    transmission.addUrl(url, (err, args) => {
+        if (err) {
+            const result = JSON.parse(err.result).result;
+            bot.sendMessage(msg.chat.id, result);
+            return;
+        }
+        bot.sendMessage(msg.chat.id, args.id);
+    });
+};
+
+const addTorrentFile = (msg, match, bot) => {
+    bot.sendMessage(msg.chat.id, 'Now send file');
+    bot.on('document', async (args) => {
+        bot.sendMessage(msg.chat.id, 'Downloading File....');
+        const download = await bot.downloadFile(args.document.file_id, watchDir);
+        bot.removeAllListeners('document');
+        bot.sendMessage(msg.chat.id, ` File downloaded in : ${download}`);
+    });
+};
 
 const actions: IAction[] = [
     {
-        callback: (msg, match, bot) => {
-            const bytes = 1024;
-            const ms = 1000;
-            transmission.get((err, arg) => {
-                if (err) {
-                    const result = JSON.parse(err.result).result;
-                    bot.sendMessage(msg.chat.id, result);
-                    return;
-                }
-                let header = '*ID - Added Date - Done - Size*';
-                arg.torrents.forEach((torrent) => {
-                    header += `\n ${torrent.id} - ${new Date(torrent.addedDate * ms).toLocaleString()}\
-                     - ${torrent.percentDone} % - ${Math.floor(torrent.totalSize / bytes)} kB`;
-                });
-
-                bot.sendMessage(msg.chat.id, header, { parse_mode: 'Markdown' });
-            });
-        },
-        regexp: /transmission status/,
+        callback: listTorrents,
+        regexp: /^transmission status/,
 
     },
     {
-        callback: (msg, match, bot) => {
-            const urlPos = 2;
-            const url = (msg.text as string).split(' ')[urlPos];
-            transmission.addUrl(url, (err, args) => {
-                if (err) {
-                    const result = JSON.parse(err.result).result;
-                    bot.sendMessage(msg.chat.id, result);
-                    return;
-                }
-                bot.sendMessage(msg.chat.id, args.id);
-            });
-        },
-        regexp: /transmission add/,
+        callback: addTorrent,
+        regexp: /^transmission add/,
 
+    },
+    {
+        callback: addTorrentFile,
+        regexp: /^ transmission file /,
     },
 ];
 
