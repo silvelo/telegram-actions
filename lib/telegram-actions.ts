@@ -22,7 +22,9 @@ export class TelegramActions {
 
     private createActions() {
         this.actions.forEach(action => {
-            this.bot.onText(action.regexp, (msg, match) => action.callback(msg, match, this.bot));
+            this.bot.onText(action.regexp, (msg, match) => {
+                action.callback(msg, match, this.bot);
+            });
         })
     }
 }
