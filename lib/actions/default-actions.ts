@@ -1,5 +1,4 @@
-import { Action } from "./../types";
-
+import { Action } from './../types';
 
 const actions: Action[] = [
     {
@@ -8,7 +7,7 @@ const actions: Action[] = [
             const chatId = msg.chat.id;
             const text = msg.text || '';
             bot.sendMessage(chatId, text);
-        }
-    }
-]
+        },
+    },
+];
 export default actions;
