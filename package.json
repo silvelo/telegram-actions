@@ -1,6 +1,6 @@
 {
   "name": "telegram-actions",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Control your Telegram bot with comands",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
