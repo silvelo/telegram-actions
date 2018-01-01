@@ -1,7 +1,7 @@
 import { truncate } from 'fs';
 import * as path from 'path';
 import * as Transmission from 'transmission';
-import { IAction } from './../types';
+import { IAction } from './../../types';
 
 const configPath = process.env.TRANSMISSION_PATH;
 let transmission;

@@ -1,6 +1,7 @@
 import * as TelegramBot from 'node-telegram-bot-api';
-import defaultActions from './actions/default-actions';
+import { defaultActions } from './actions';
 import { IAction } from './types';
+
 export class TelegramActions {
     private bot: TelegramBot;
     private actions: IAction[] = [];
