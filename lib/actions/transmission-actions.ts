@@ -89,7 +89,7 @@ const actions: IAction[] = [
     },
     {
         callback: addTorrentFile,
-        regexp: /^ transmission file /,
+        regexp: /^transmission file /,
     },
 ];
 

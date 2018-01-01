@@ -38,17 +38,8 @@ Reference
 
 Extra Actions
 ------------
-## Transmission Actions
 
-    > To use this actions you should install transmission package.
-
-```
-npm install --save transmission
-```
-
-### Transmission configure
-To use add file torrents you must enabled and edit incomplete-dir and watch-dir properties on settings.json.
-The torrent file will download is the incomplete-dir automatically.
+You can found configure [Wiki](https://github.com/silvelo/telegram-actions/wiki).
 
 
 
