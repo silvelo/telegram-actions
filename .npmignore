@@ -5,3 +5,4 @@ docs/
 *.json
 *.md
 .gitignore
+*.tgz
