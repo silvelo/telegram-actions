@@ -10,7 +10,10 @@
             "single"
         ],
         "no-magic-numbers": true,
-        "no-console": true,
+        "no-console": [
+            true,
+            "log"
+        ],
         "no-var-keyword": true,
         "indent": [
             true,
