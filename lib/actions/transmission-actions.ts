@@ -1,17 +1,40 @@
 import { truncate } from 'fs';
+import * as path from 'path';
 import * as Transmission from 'transmission';
 import { IAction } from './../types';
 
-const transmission = new Transmission({ port: 9091 });
+const configPath = process.env.TRANSMISSION_PATH;
+let transmission;
 let watchDir;
-transmission.session((err, args) => {
-    watchDir = args && args['incomplete-dir'];
-});
+
+async function loadFileConfig() {
+    if (configPath) {
+        return await import(configPath);
+    }
+    return {};
+}
+
+async function loadConfig() {
+    let defaultConfig = {};
+    try {
+        defaultConfig = await loadFileConfig();
+    } catch (e) {
+        console.error(`Transmission config can't be load: ${e.message}`);
+    }
+    const transmissionConfig = process.env.TRANSMISSION_CONFIG || defaultConfig;
+    transmission = new Transmission(transmissionConfig);
+
+    transmission.session((err, args) => {
+        watchDir = args && args['incomplete-dir'];
+    });
+}
+
+loadConfig();
 
 const validateConnection = (err, msg, bot) => {
     const result = err.result && JSON.parse(err.result).result || err.code;
     bot.sendMessage(msg.chat.id, result);
-}
+};
 
 const listTorrents = (msg, match, bot) => {
     const bytes = 1024;
