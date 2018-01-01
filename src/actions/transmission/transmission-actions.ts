@@ -79,7 +79,7 @@ const addTorrentFile = (msg, match, bot) => {
 const actions: IAction[] = [
     {
         callback: listTorrents,
-        regexp: /^transmission status/,
+        regexp: /^transmission status$/,
 
     },
     {
@@ -89,7 +89,7 @@ const actions: IAction[] = [
     },
     {
         callback: addTorrentFile,
-        regexp: /^transmission file /,
+        regexp: /^transmission file$/,
     },
 ];
 
