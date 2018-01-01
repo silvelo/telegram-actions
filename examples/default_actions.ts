@@ -1,5 +1,5 @@
-import { Action, TelegramActions } from './../index';
+import { IAction, TelegramActions } from './../index';
 
 const token = process.env.TOKEN || '';
-const bot = new TelegramActions(token, true);
-bot.start();
+const telegramActions = new TelegramActions(token, true);
+telegramActions.start();
