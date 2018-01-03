@@ -1,11 +1,9 @@
-import { truncate } from 'fs';
-import * as path from 'path';
+import { IAction } from '@telegram-actions/core';
 import * as Transmission from 'transmission';
-import { IAction } from './../../types';
 
 const configPath = process.env.TRANSMISSION_PATH;
 let transmission;
-let watchDir;
+let watchDir = '';
 
 async function loadFileConfig() {
     if (configPath) {
@@ -36,7 +34,7 @@ const validateConnection = (err, msg, bot) => {
     bot.sendMessage(msg.chat.id, result);
 };
 
-const listTorrents = (msg, match, bot) => {
+const listTorrents = (msg, bot) => {
     const bytes = 1024;
     const ms = 1000;
     transmission.get((err, arg) => {
@@ -54,7 +52,7 @@ const listTorrents = (msg, match, bot) => {
     });
 };
 
-const addTorrent = (msg, match, bot) => {
+const addTorrent = (msg, bot) => {
     const urlPos = 2;
     const url = (msg.text as string).split(' ')[urlPos];
     transmission.addUrl(url, (err, args) => {
@@ -66,7 +64,7 @@ const addTorrent = (msg, match, bot) => {
     });
 };
 
-const addTorrentFile = (msg, match, bot) => {
+const addTorrentFile = (msg, bot) => {
     bot.sendMessage(msg.chat.id, 'Now send file');
     bot.on('document', async (args) => {
         bot.sendMessage(msg.chat.id, 'Downloading File....');
