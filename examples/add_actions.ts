@@ -1,11 +1,11 @@
-import { IAction, TelegramActions } from 'telegram-actions';
+import { IAction, TelegramActions } from '@telegram-actions/core';
 
 const token = process.env.TOKEN || '';
 const telegramActions = new TelegramActions(token, true);
 
 const newAction: IAction = {
     regexp: /receive/,
-    callback: (msg, match, bot) => {
+    callback: (msg, bot) => {
         bot.sendMessage(msg.chat.id, 'Message Receive');
     },
 };
