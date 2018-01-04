@@ -1,4 +1,5 @@
 {
+    "private": true,
     "author": "Arturo Silvelo <arturo.silvelo@gmail.com> (https://silvelo.com)",
     "license": "MIT",
     "keywords": [
@@ -7,7 +8,6 @@
         "node",
         "typescript"
     ],
-    "private": true,
     "name": "@telegram-actions/core",
     "version": "2.0.0",
     "description": "",
