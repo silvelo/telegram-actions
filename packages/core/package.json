@@ -1,5 +1,4 @@
 {
-    "private": true,
     "author": "Arturo Silvelo <arturo.silvelo@gmail.com> (https://silvelo.com)",
     "license": "MIT",
     "keywords": [
@@ -10,7 +9,7 @@
     ],
     "name": "@telegram-actions/core",
     "version": "2.0.0",
-    "description": "",
+    "description": "Control your Telegram bot with comands (@core)",
     "main": "lib/index.js",
     "typings": "lib/index.d.ts",
     "scripts": {
@@ -24,5 +23,13 @@
     },
     "devDependencies": {
         "typescript": "^2.5.2"
-    }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/silvelo/telegram-actions.git"
+    },
+    "bugs": {
+        "url": "https://github.com/silvelo/telegram-actions/issues"
+    },
+    "homepage": "https://github.com/silvelo/telegram-actions"
 }
