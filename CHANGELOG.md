@@ -1,3 +1,6 @@
+v 2.0.0
+------
+* Split modules in packages.
 
 v 1.2.0
 -------
