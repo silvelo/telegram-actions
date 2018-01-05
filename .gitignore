@@ -5,3 +5,4 @@ dist
 packages/*/lib/
 packages/*/*.md
 packages/*/.npmignore
+!packages/*/README.md
