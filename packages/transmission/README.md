@@ -1,6 +1,6 @@
 # Telegram Actions
 
-[![CircleCI](https://circleci.com/gh/silvelo/telegram-actions/tree/transmission-actions.svg?style=svg)](https://circleci.com/gh/silvelo/telegram-actions/tree/transmission-actions)
+[![CircleCI](https://circleci.com/gh/silvelo/telegram-actions.svg?&style=shield)](https://circleci.com/gh/silvelo/telegram-actions/tree/transmission-actions)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/silvelo)
 
 Control your Telegram bot with comands.
