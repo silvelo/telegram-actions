@@ -1,8 +1,5 @@
-src/
-examples/
-docs/
-*.yml
 *.json
 *.md
 .gitignore
 *.tgz
+src

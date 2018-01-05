@@ -1,26 +1,35 @@
-First you need to install transmission package.
+# Transmission Actions
 
-> The main program doesnt include to avoid add antoher dependency.
 
-```
-npm install transmission
-```
-
-After that you can add transmission actions to program, the default actions are:
-    
+## Available Expression
 - __transmission status__ : List all torrents and show basic info.
+
+![alt text](http://res.cloudinary.com/arturosilvelo/image/upload/v1515169185/Telegram-actions/transmission/status_zoanzr.jpg)
+
 - __transmission add__ [magnet_link]: Add the magnet link to transmission.
+
+![alt text](http://res.cloudinary.com/arturosilvelo/image/upload/v1515169242/Telegram-actions/transmission/link_ds6dbx.jpg)
+
 - __transmission file__ : Add torrent file.
 
-Add File Configure
-------
-To use add file torrents you must enabled and edit **incomplete-dir** and **watch-dir** properties on settings.json. The **incomplete-dir**  and **watch-dir** will be same path. The torrent file will download is that path and transmission load automatically.
+![alt text](http://res.cloudinary.com/arturosilvelo/image/upload/v1515169209/Telegram-actions/transmission/file_kaqobv.jpg)
 
-Transmission settings
-------------
+
+## Edit transmission [settings.json](https://github.com/transmission/transmission/wiki/Configuration-Files)
+
+To add file torrents, first you need to edit transmission settings config.
+
+- Edit **incomplete-dir** and **watch-dir** properties with same path.
+- Edit **incomplete-dir-enabled** and **watch-dir-enabled** properties to true.
+
+Now you can add files and automatically will be load.
+
+## Transmission settings
+
 If you need to change settings of transmission you can set it by this ways:
-- To add configure byt enviroment only need set TRANSMISSION_CONFIG variable.
-- To add configure by json file only need to set TRANSMISSION_PATH variable.
+- Set **TRANSMISSION_PATH** enviroment variable with the absolute path to json config.
+- Set **TRANSMISSION_CONFIG** enviroment variable with the configure. (not recommended)
+
 
 The interface of configure is:
 

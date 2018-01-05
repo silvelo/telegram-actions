@@ -7,7 +7,7 @@ export class TelegramActions {
     private actions: IAction[] = [];
 
     constructor(private token: string, private addDefaultActions?: boolean) {
-        if (addDefaultActions) {
+        if (this.addDefaultActions) {
             this.addActions(defaultActions);
         }
     }
@@ -23,8 +23,8 @@ export class TelegramActions {
 
     private createActions() {
         this.actions.forEach((action) => {
-            this.bot.onText(action.regexp, (msg, match) => {
-                action.callback(msg, match, this.bot);
+            this.bot.onText(action.regexp, (msg) => {
+                action.callback(msg, this.bot);
             });
         });
     }

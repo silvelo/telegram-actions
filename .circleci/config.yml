@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+        - image: circleci/node:latest
+      
+    steps:
+        - checkout
+        - run: yarn --version
+        - run: yarn install
+        - run: yarn run lerna bootstrap
+        - run: yarn run lerna run prepare

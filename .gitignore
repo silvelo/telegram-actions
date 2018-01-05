@@ -1,3 +1,7 @@
 node_modules
 *.tgz
 dist
+*.log
+packages/*/lib/
+packages/*/*.md
+packages/*/.npmignore

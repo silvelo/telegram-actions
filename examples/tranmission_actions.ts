@@ -1,5 +1,5 @@
-import { IAction, TelegramActions } from 'telegram-actions';
-import { transmissionActions } from 'telegram-actions/dist/actions/transmission';
+import { IAction, TelegramActions } from '@telegram-actions/core';
+import { transmissionActions } from '@telegram-actions/transmission';
 
 const token = process.env.TOKEN || '';
 

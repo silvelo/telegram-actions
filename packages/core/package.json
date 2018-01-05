@@ -1,0 +1,36 @@
+{
+    "author": "Arturo Silvelo <arturo.silvelo@gmail.com> (https://silvelo.com)",
+    "license": "MIT",
+    "keywords": [
+        "telegram",
+        "bot",
+        "node",
+        "typescript",
+        "transmission"
+    ],
+    "name": "@telegram-actions/core",
+    "version": "2.0.0",
+    "description": "Control your Telegram bot with comands (@core)",
+    "main": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "scripts": {
+        "prepare": "tsc -p tsconfig.build.json",
+        "pack": "npm pack"
+    },
+    "dependencies": {
+        "@types/node": "^8.0.28",
+        "@types/node-telegram-bot-api": "^0.28.2",
+        "node-telegram-bot-api": "^0.30.0"
+    },
+    "devDependencies": {
+        "typescript": "^2.5.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/silvelo/telegram-actions.git"
+    },
+    "bugs": {
+        "url": "https://github.com/silvelo/telegram-actions/issues"
+    },
+    "homepage": "https://github.com/silvelo/telegram-actions"
+}

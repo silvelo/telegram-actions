@@ -1,4 +1,4 @@
-import { IAction, TelegramActions } from 'telegram-actions';
+import { IAction, TelegramActions } from '@telegram-actions/core';
 
 const token = process.env.TOKEN || '';
 const telegramActions = new TelegramActions(token, true);

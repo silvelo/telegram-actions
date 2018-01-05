@@ -1,14 +1,5 @@
 {
-  "name": "telegram-actions",
-  "version": "1.2.2",
-  "description": "Control your Telegram bot with comands",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "prepublish": "rm -Rf ./dist && npm run build",
-    "build": "tsc",
-    "test": "tslint -p tsconfig.json"
-  },
+  "private": true,
   "author": "Arturo Silvelo <arturo.silvelo@gmail.com> (https://silvelo.com)",
   "license": "MIT",
   "keywords": [
@@ -25,12 +16,25 @@
     "url": "https://github.com/silvelo/telegram-actions/issues"
   },
   "homepage": "https://github.com/silvelo/telegram-actions",
-  "dependencies": {
-    "node-telegram-bot-api": "^0.30.0"
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "copy": "gulp copy",
+    "pack": "yarn run copy && lerna run pack",
+    "test": "lerna run test",
+    "prepare": "lerna run prepare",
+    "publish": "yarn run clean && yarn run copy && lerna publish",
+    "clean": "rimraf packages/**/lib"
   },
   "devDependencies": {
-    "@types/node-telegram-bot-api": "^0.28.2",
+    "@types/node": "^8.0.28",
+    "gulp": "^3.9.1",
+    "gulp-multi-dest": "^0.0.4",
+    "lerna": "^2.2.0",
+    "rimraf": "^2.6.2",
     "tslint": "^5.8.0",
-    "typescript": "^2.6.2"
-  }
+    "typescript": "^2.5.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
