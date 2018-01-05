@@ -8,37 +8,17 @@ Control your Telegram bot with comands.
 __Install__
 
 ```bash
-npm install telegram-actions --save
+npm install @telegram-actions/core @telegram/transmission --save
 ```
 
-Example
-------------
-```typescript
-import { TelegramActions, IAction } from 'telegram-actions';
 
-const token = process.env.TOKEN || '';
-const bot = new TelegramActions(token, true);
-bot.start();
-```
+## Packages
+The scope @telegram-actions contains two packages at the moment:
 
-More [examples](https://github.com/silvelo/telegram-actions/tree/master/examples)
+* __core__: The main package to work
+* __transmission__: Transmission actions package.
 
-Reference
-------------
-- Action: Action interface
-
-- TelegramActions
-    - constructor(token, defaultActions)
-    - start(TelegramActions)
-    - addActions(Action[])
-
-
-* defaultActions: The default action is echo function. If you write echo .... the bot response with the same message.
-
-Extra Actions
-------------
-You can found configure [Wiki](https://github.com/silvelo/telegram-actions/wiki).
-
+To get more info go to packages folder.
 
 Donation
 --------

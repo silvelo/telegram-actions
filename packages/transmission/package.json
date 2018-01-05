@@ -1,6 +1,6 @@
 {
     "name": "@telegram-actions/transmission",
-    "version": "2.0.0-beta.1",
+    "version": "1.0.0-beta.2",
     "description": "Control your Telegram bot with comands (@transmission)",
     "main": "lib/index.js",
     "typings": "lib/index.d.ts",
@@ -8,10 +8,17 @@
         "prepare": "tsc -p tsconfig.build.json",
         "pack": "npm pack"
     },
+    "keywords": [
+        "telegram",
+        "bot",
+        "node",
+        "typescript",
+        "transmission"
+    ],
     "author": "Arturo Silvelo <arturo.silvelo@gmail.com> (https://silvelo.com)",
     "license": "MIT",
     "dependencies": {
-        "@telegram-actions/core": "^2.0.0-beta.1",
+        "@telegram-actions/core": "^1.0.0-beta.2",
         "@types/node": "^8.0.28",
         "transmission": "^0.4.9"
     },

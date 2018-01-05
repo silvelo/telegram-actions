@@ -5,10 +5,11 @@
         "telegram",
         "bot",
         "node",
-        "typescript"
+        "typescript",
+        "transmission"
     ],
     "name": "@telegram-actions/core",
-    "version": "2.0.0-beta.1",
+    "version": "1.0.0-beta.2",
     "description": "Control your Telegram bot with comands (@core)",
     "main": "lib/index.js",
     "typings": "lib/index.d.ts",
