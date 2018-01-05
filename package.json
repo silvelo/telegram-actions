@@ -22,7 +22,7 @@
     "pack": "yarn run copy && lerna run pack",
     "test": "lerna run test",
     "prepare": "lerna run prepare",
-    "publish": "yarn run clean && yarn run copy && lerna publish",
+    "publish": "yarn run clean && yarn run copy && yarn run prepare && lerna publish",
     "clean": "rimraf packages/**/lib"
   },
   "devDependencies": {
