@@ -2,18 +2,21 @@ import * as TelegramBot from 'node-telegram-bot-api';
 import { defaultActions } from './actions';
 import { IAction } from './types';
 
-export class TelegramActions {
-    private bot: TelegramBot;
+export class TelegramActions extends TelegramBot {
     private actions: IAction[] = [];
 
-    constructor(private token: string, private addDefaultActions?: boolean) {
+    constructor(
+        private token: string,
+        private addDefaultActions: boolean = true,
+        private options: TelegramBot.ConstructorOptions = {},
+    ) {
+        super(token, options);
         if (this.addDefaultActions) {
             this.addActions(defaultActions);
         }
     }
 
-    public start() {
-        this.bot = new TelegramBot(this.token, { polling: true });
+    public enableActions() {
         this.createActions();
     }
 
@@ -23,8 +26,8 @@ export class TelegramActions {
 
     private createActions() {
         this.actions.forEach((action) => {
-            this.bot.onText(action.regexp, (msg) => {
-                action.callback(msg, this.bot);
+            this.onText(action.regexp, (msg) => {
+                action.callback(msg, this);
             });
         });
     }

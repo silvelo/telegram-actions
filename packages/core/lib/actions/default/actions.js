@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var actions = [
+const actions = [
     {
-        callback: function (msg, bot) {
-            var chatId = msg.chat.id;
-            var text = msg.text || '';
+        callback: (msg, bot) => {
+            const chatId = msg.chat.id;
+            const text = msg.text || '';
             bot.sendMessage(chatId, text);
         },
         regexp: /^echo/,

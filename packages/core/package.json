@@ -15,7 +15,8 @@
     "typings": "lib/index.d.ts",
     "scripts": {
         "prepare": "tsc -p tsconfig.build.json",
-        "pack": "npm pack"
+        "pack": "npm pack",
+        "test": "nyc --reporter=lcov  mocha ./lib/test/*.js > coverage.lcov && codecov"
     },
     "dependencies": {
         "@types/node": "^8.0.28",
@@ -23,6 +24,12 @@
         "node-telegram-bot-api": "^0.30.0"
     },
     "devDependencies": {
+        "@types/chai": "^4.1.0",
+        "@types/mocha": "^2.2.46",
+        "chai": "^4.1.2",
+        "mocha": "^4.1.0",
+        "nyc": "^11.4.1",
+        "telegram-test": "^0.1.5",
         "typescript": "^2.5.2"
     },
     "repository": {
