@@ -36,5 +36,8 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "codecov": "^3.0.0"
+  }
 }
