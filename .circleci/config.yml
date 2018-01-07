@@ -9,4 +9,5 @@ jobs:
         - run: yarn --version
         - run: yarn install
         - run: yarn run lerna bootstrap
-        - run: yarn run lerna run prepare
+        - run: yarn run prepare
+        - run: yarn run test
