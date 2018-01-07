@@ -3,3 +3,5 @@
 .gitignore
 *.tgz
 src
+.nyc_output
+coverage

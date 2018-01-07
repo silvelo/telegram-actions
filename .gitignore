@@ -2,7 +2,8 @@ node_modules
 *.tgz
 dist
 *.log
-packages/*/lib/
 packages/*/*.md
 packages/*/.npmignore
+packages/*/coverage
+packages/*/.nyc_output
 !packages/*/README.md
