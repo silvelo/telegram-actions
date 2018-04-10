@@ -18,8 +18,7 @@
     "license": "MIT",
     "dependencies": {
         "@telegram-actions/core": "^2.2.0",
-        "@types/node": "^8.0.28",
-        "transmission": "^0.4.9"
+        "@types/node": "^8.0.28"
     },
     "devDependencies": {
         "typescript": "^2.5.2"
