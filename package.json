@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/silvelo/telegram-actions",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap --hoist",
     "copy": "gulp copy",
     "pack": "yarn run copy && lerna run pack",
     "test": "lerna run test",
