@@ -1,6 +1,6 @@
 {
     "name": "@telegram-actions/system",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "description": "Control your Telegram bot with comands (@system)",
     "main": "lib/index.js",
     "typings": "lib/index.d.ts",
