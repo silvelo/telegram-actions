@@ -9,7 +9,7 @@ Control your Telegram bot with comands.
 __Install__
 
 ```bash
-npm install @telegram-actions/core @telegram-actions/transmission --save
+npm install @telegram-actions/core @telegram-actions/system --save
 ```
 
 Example
@@ -17,12 +17,14 @@ Example
 ```typescript
 import { IAction, TelegramActions } from '@telegram-actions/core';
 import { transmissionActions } from '@telegram-actions/transmission';
+import { systemActions } from '@telegram-actions/system';
 
 const token = process.env.TOKEN || '';
 
 const telegramActions = new TelegramActions(token, true);
 
 telegramActions.addActions(transmissionActions);
+telegramActions.addActions(systemActions);
 telegramActions.start();
 ```
 
@@ -31,7 +33,7 @@ telegramActions.start();
 More [examples](https://github.com/silvelo/telegram-actions/blob/master/examples)
 
 
-## [Transmission Actions](https://github.com/silvelo/telegram-actions/blob/master/docs/)
+## [System Actions](https://github.com/silvelo/telegram-actions/blob/master/docs/)
 
 Donation
 --------

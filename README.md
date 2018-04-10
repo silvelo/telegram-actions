@@ -19,6 +19,7 @@ The scope @telegram-actions contains two packages at the moment:
 
 * __core__: The main package to work
 * __transmission__: Transmission actions package.
+* __system__:  System actions package.
 
 To get more info go to packages folder.
 
